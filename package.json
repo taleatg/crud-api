@@ -2,12 +2,12 @@
   "name": "crud-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:fix": "eslint \"**/*.ts\" --fix",
     "start:dev": "nodemon src/index.ts",
-    "start:prod": "",
+    "start:prod": "tsc",
     "start:multi": ""
   },
   "repository": {
@@ -25,10 +25,12 @@
     "dotenv": "^16.0.1",
     "eslint-config-prettier": "^8.5.0",
     "nodemon": "^2.0.16",
-    "prettier": "^2.7.0"
+    "prettier": "^2.7.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.42",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
     "eslint": "^8.17.0",
