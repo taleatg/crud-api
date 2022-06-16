@@ -4,7 +4,8 @@ import { createUser } from './crud/create';
 import { STATUS_CODE, RESPONSE_MESSAGES, DEFAULT_HEAD } from './utils/constants';
 import { getUsers, getUserById } from './crud/get';
 import { updateUser } from './crud/update';
-import {checkPath} from "./utils/utils";
+import { checkPath } from './utils/utils';
+import { deleteUser } from './crud/delete';
 
 dotenv.config();
 
@@ -25,6 +26,9 @@ const server = http.createServer(async (req, res) => {
 
             } else if (checkPath(req.url) && req.method === 'PUT') {
                 await updateUser(req, res);
+
+            } else if (checkPath(req.url) && req.method === 'DELETE') {
+                await deleteUser(req, res);
 
             } else {
                 res.writeHead(STATUS_CODE.NOT_FOUND, DEFAULT_HEAD);
