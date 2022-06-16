@@ -35,4 +35,4 @@ export const deleteUser = async (req: any, res: any) => {
     } catch (err: any) {
         process.stdout.write(err);
     }
-}
+};

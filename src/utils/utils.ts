@@ -24,11 +24,11 @@ export const updateUserList = (users: User[]) => {
     fs.writeFile(file, JSON.stringify(users), () => {
         process.stdout.write('User has been added\n');
     });
-}
+};
 
 export const checkPath = (path: string) => {
     const params = path.split('/');
     return params.length === 4 && params[1] === 'api' && params[2] === 'users';
-}
+};
 
-export const checkId = (req: any) => req.url.match(/[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i)
+export const checkId = (req: any) => req.url.match(/[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i);

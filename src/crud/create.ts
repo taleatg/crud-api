@@ -36,4 +36,4 @@ export const createUser = async (req: any, res: any) => {
         res.writeHead(STATUS_CODE.BAD_REQUEST, DEFAULT_HEAD);
         res.end(JSON.stringify({ 'message': RESPONSE_MESSAGES.INVALID_DATA }));
     }
-}
+};

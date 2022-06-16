@@ -10,7 +10,7 @@ export const getUsers = (_: any, res: any) => {
         process.stdout.write(err);
         res.end(JSON.stringify([]));
     }
-}
+};
 
 export const getUserById = (req: any, res: any) => {
     try {
@@ -34,4 +34,4 @@ export const getUserById = (req: any, res: any) => {
     } catch (err: any) {
         process.stdout.write(err);
     }
-}
+};
