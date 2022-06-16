@@ -1,22 +1,15 @@
 import { v4 } from 'uuid';
-import fs  from 'fs';
-import path, { dirname } from 'path';
-import { getRequestData } from '../utils/utils';
+import { getRequestData, updateUserList } from '../utils/utils';
 import users from '../users.json';
 import { User } from '../utils/interfaces';
-import {STATUS_CODE, RESPONSE_MESSAGES, DEFAULT_HEAD} from '../utils/constants';
+import { STATUS_CODE, RESPONSE_MESSAGES, DEFAULT_HEAD } from '../utils/constants';
 
 const addUser = (user: User) => new Promise((resolve) => {
-    const __dirname = dirname(__filename);
-    const file = path.join(__dirname, '../users.json');
     const newUser = {id: v4(), ...user};
     const allUsers: User[] = users;
+
     allUsers.push(newUser);
-
-    fs.writeFile(file, JSON.stringify(allUsers), () => {
-        process.stdout.write('User has been added\n');
-    });
-
+    updateUserList(allUsers);
     resolve(newUser);
 });
 

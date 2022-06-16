@@ -3,6 +3,8 @@ import * as dotenv from 'dotenv';
 import { createUser } from './crud/create';
 import { STATUS_CODE, RESPONSE_MESSAGES, DEFAULT_HEAD } from './utils/constants';
 import { getUsers, getUserById } from './crud/get';
+import { updateUser } from './crud/update';
+import {checkPath} from "./utils/utils";
 
 dotenv.config();
 
@@ -13,13 +15,16 @@ const server = http.createServer(async (req, res) => {
         if (req.url) {
 
             if (req.url === '/api/users' && req.method === 'GET') {
-                await getUsers(req, res);
+                getUsers(req, res);
 
-            } else if (req.url.split('/').length === 4 && req.method === 'GET') {
-                await getUserById(req, res);
+            } else if (checkPath(req.url) && req.method === 'GET') {
+                getUserById(req, res);
 
             } else if (req.url === '/api/users' && req.method === 'POST') {
                 await createUser(req, res);
+
+            } else if (checkPath(req.url) && req.method === 'PUT') {
+                await updateUser(req, res);
 
             } else {
                 res.writeHead(STATUS_CODE.NOT_FOUND, DEFAULT_HEAD);
