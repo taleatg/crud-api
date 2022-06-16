@@ -5,7 +5,7 @@
         "node": true
     },
     "extends": [
-        "airbnb-base",
+        "plugin:import/recommended",
         "eslint:recommended",
         "prettier"
     ],

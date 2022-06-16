@@ -13,3 +13,5 @@ export const getRequestData = (data: IncomingMessage) => new Promise((resolve): 
         process.stdout.write(err);
     }
 });
+
+export const checkId = (req: any) => req.url.match(/[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i)

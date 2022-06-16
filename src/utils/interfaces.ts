@@ -1,7 +1,5 @@
-import uuid from 'uuid';
-
 export interface User {
-    id?: string | typeof uuid,
+    id?: string,
     username: string,
     age: number,
     hobbies: string[],
