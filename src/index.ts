@@ -13,21 +13,22 @@ const PORT = process.env.PORT || 4000;
 
 const server = http.createServer(async (req, res) => {
     try {
+
         if (req.url) {
 
             if (req.url === '/api/users' && req.method === 'GET') {
                 getUsers(req, res);
 
-            } else if (checkPath(req.url) && req.method === 'GET') {
+            } else if (checkPath(req.url as string) && req.method === 'GET') {
                 getUserById(req, res);
 
             } else if (req.url === '/api/users' && req.method === 'POST') {
                 await createUser(req, res);
 
-            } else if (checkPath(req.url) && req.method === 'PUT') {
+            } else if (checkPath(req.url as string) && req.method === 'PUT') {
                 await updateUser(req, res);
 
-            } else if (checkPath(req.url) && req.method === 'DELETE') {
+            } else if (checkPath(req.url as string) && req.method === 'DELETE') {
                 await deleteUser(req, res);
 
             } else {
@@ -35,6 +36,7 @@ const server = http.createServer(async (req, res) => {
                 res.end(JSON.stringify({ 'message': RESPONSE_MESSAGES.NON_EXISTENT_ENDPOINT }));
             }
         }
+
     } catch {
         res.writeHead(STATUS_CODE.SERVER_ERROR, DEFAULT_HEAD);
         res.end(JSON.stringify({ 'message': RESPONSE_MESSAGES.SERVER_ERROR }));

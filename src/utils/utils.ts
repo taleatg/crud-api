@@ -21,9 +21,7 @@ export const updateUserList = (users: User[]) => {
     const __dirname = dirname(__filename);
     const file = path.join(__dirname, '../users.json');
 
-    fs.writeFile(file, JSON.stringify(users), () => {
-        process.stdout.write('User has been added\n');
-    });
+    fs.writeFile(file, JSON.stringify(users), () => {});
 };
 
 export const checkPath = (path: string) => {
