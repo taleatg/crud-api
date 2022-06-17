@@ -23,10 +23,22 @@ export const createUser = async (req: any, res: any) => {
             hobbies,
         };
 
-        if (typeof username !== 'string' || typeof age !== 'number' || age < 1 || !Array.isArray(hobbies)) {
+        if (typeof username !== 'string'
+            || typeof age !== 'number'
+            || age < 1
+            || !Array.isArray(hobbies)
+            || hobbies.filter(item => typeof item !== 'string').length > 0) {
             res.writeHead(STATUS_CODE.BAD_REQUEST, DEFAULT_HEAD);
             res.end(JSON.stringify({ 'message': RESPONSE_MESSAGES.NOT_ENOUGH_DATA }));
             return;
+        } else if (Array.isArray(hobbies)) {
+            hobbies.map(item => {
+                if (typeof item !== 'string') {
+                    res.writeHead(STATUS_CODE.BAD_REQUEST, DEFAULT_HEAD);
+                    res.end(JSON.stringify({'message': RESPONSE_MESSAGES.NOT_ENOUGH_DATA}));
+                    return;
+                }
+            });
         }
 
         const newUser = await addUser(user);
