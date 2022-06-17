@@ -23,7 +23,7 @@ export const createUser = async (req: any, res: any) => {
             hobbies,
         };
 
-        if (!username || !age || !hobbies) {
+        if (typeof username !== 'string' || typeof age !== 'number' || age < 1 || !Array.isArray(hobbies)) {
             res.writeHead(STATUS_CODE.BAD_REQUEST, DEFAULT_HEAD);
             res.end(JSON.stringify({ 'message': RESPONSE_MESSAGES.NOT_ENOUGH_DATA }));
             return;
