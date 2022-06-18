@@ -1,6 +1,7 @@
 import { DEFAULT_HEAD, STATUS_CODE, RESPONSE_MESSAGES } from '../utils/constants';
 import users from '../users.json';
 import { checkId } from '../utils/utils';
+import {User} from "../utils/interfaces";
 
 export const getUsers = (_: any, res: any) => {
     try {
@@ -17,11 +18,11 @@ export const getUserById = (req: any, res: any) => {
         const id = checkId(req);
 
         if (id) {
-            const user = users.filter(person => person.id === id[0]);
+            const user = (users as User[]).filter(person => person.id === id[0]);
 
             if (user.length) {
                 res.writeHead(STATUS_CODE.OK, DEFAULT_HEAD);
-                res.end(JSON.stringify(user));
+                res.end(JSON.stringify(user[0]));
             } else {
                 res.writeHead(STATUS_CODE.NOT_FOUND, DEFAULT_HEAD);
                 res.end(JSON.stringify({ 'message': RESPONSE_MESSAGES.NOT_FOUND }));

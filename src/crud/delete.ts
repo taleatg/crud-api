@@ -8,11 +8,11 @@ export const deleteUser = async (req: any, res: any) => {
         const id = checkId(req);
 
         if (id) {
-            const user: User = users.filter(person => person.id === id[0])[0];
+            const user: User = (users as User[]).filter(person => person.id === id[0])[0];
 
             if (user) {
                 let index = 0;
-                users.filter((person, ind) => {
+                users.filter((person: User, ind) => {
                     if (person.id === id[0]) {
                         index = ind;
                     }

@@ -8,7 +8,7 @@ export const updateUser = async (req: any, res: any) => {
         const id = checkId(req);
 
         if (id) {
-            const user: User = users.filter(person => person.id === id[0])[0];
+            const user: User = (users as User[]).filter(person => person.id === id[0])[0];
 
             if (user) {
                 const body = await getRequestData(req);
