@@ -3,7 +3,8 @@
 ### Clone the repo
 ```bash
 git clone https://github.com/taleatg/crud-api.git
-cd develop
+cd crud-api
+git checkout develop
 ```
 
 ### Install the dependencies
