@@ -22,6 +22,11 @@ npm run start:dev
 npm run start:prod
 ```
 
+### Run test
+```bash
+npm run test
+```
+
 ### API endpoints
 | Methods | Urls          |  Descriptions |
 |---------|---------------|---------------|
