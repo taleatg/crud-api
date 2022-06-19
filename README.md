@@ -27,6 +27,11 @@ npm run start:prod
 npm run test
 ```
 
+### Run multiple instances of application
+```bash
+npm run start:multi
+```
+
 ### API endpoints
 | Methods | Urls          |  Descriptions |
 |---------|---------------|---------------|
