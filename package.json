@@ -8,7 +8,7 @@
     "start:dev": "nodemon src/index.ts",
     "start:prod": "tsc && node dist/index.js",
     "test": "jest",
-    "start:multi": ""
+    "start:multi": "ts-node ./src/scaling/scaling.ts"
   },
   "repository": {
     "type": "git",

@@ -11,7 +11,6 @@ describe('Script 1', () => {
         const res = await request.get(url);
 
         expect(res.statusCode).toBe(200);
-        // expect(res.body).toEqual([]);
     });
 
     it('A new user is created (a response containing newly created record is expected)', async () => {

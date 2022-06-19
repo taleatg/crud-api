@@ -11,7 +11,7 @@ dotenv.config();
 
 const PORT = process.env.PORT || 4000;
 
-const server = http.createServer(async (req, res) => {
+export const server = http.createServer(async (req, res) => {
     try {
 
         if (req.url) {
